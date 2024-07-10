@@ -1,0 +1,7 @@
+<div class="navbar">
+    <a routerLink="/">Home</a>
+    <div *ngIf="$cart | async as cart">
+      <a routerLink="cart">Cart {{cart.length}}</a>
+    </div>
+    <!-- <a href="#contact">Contact</a> -->
+  </div>
