@@ -1,0 +1,50 @@
+<div class="main">
+    <div class="header">
+        <strong>CybageCart</strong>
+    </div>
+    <div class="search">
+        <label>Search Product</label>
+         <input type="text" />
+    </div>
+    <div class="filter">
+        <div class="category">
+            <div class="category-header">
+              Category
+            </div>
+            <div *ngFor="let item of category;let i = index">
+                <input type="checkbox" [id]="i" (click)="filter(item)"  [name]="item" [value]="item">
+                <label class="filter-text" for="category"> {{item}}</label><br>
+            </div>
+        </div>
+        <div class="price">
+            <div class="price-header">
+                Please select your price range:
+            </div>
+            <div>
+                <input type="radio" id="price1" name="age" value="100">
+                <label for="age1">0 - 100</label><br>
+                <input type="radio" id="price2" name="age" value="500">
+                <label for="age2">101 - 500</label><br>  
+                <input type="radio" id="price3" name="age" value="1000">
+                <label for="age3">501 - 1000</label><br><br>
+            </div>
+        </div>
+        <div class="rating">
+            <div class="rating-header">
+                Please select your rating:
+            </div>
+            <div>
+                <input type="radio" id="rating5" name="age" value="5">
+                <label for="age1">5</label><br>
+                <input type="radio" id="rating4" name="age" value="4">
+                <label for="age1">4</label><br>  
+                <input type="radio" id="rating3" name="age" value="3">
+                <label for="age1">3</label><br>
+                <input type="radio" id="rating2" name="age" value="2">
+                <label for="age1">2</label><br>
+                <input type="radio" id="rating1" name="age" value="1">
+                <label for="age1">1</label><br>
+            </div>
+        </div>
+    </div>
+</div>

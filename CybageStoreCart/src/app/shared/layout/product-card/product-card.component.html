@@ -1,0 +1,23 @@
+
+
+<div class="card">
+    <div class="item">
+      <img [src]="products.image" alt="Denim Jeans" style="width:60%">
+   </div>
+     
+      <h2 class="text-overflow-title">{{products.title}}</h2>
+      <p class="price">{{products.price}}</p>
+      <p class="rating">Rating {{products.rating.rate}}</p>
+      <p>
+      <button *ngIf="products.cartcount === 0" (click)="addProduct(products)">Add to Cart</button>
+      <span *ngIf="products.cartcount > 0">
+        <button style="width: 50px;" (click)="removeProduct(products)">
+          -
+        </button>
+        {{products.cartcount}}
+        <button style="width: 50px;" (click)="addProduct(products)">
+          +
+        </button>
+      </span>
+    </p>
+    </div>
