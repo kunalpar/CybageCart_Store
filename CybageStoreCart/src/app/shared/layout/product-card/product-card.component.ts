@@ -18,7 +18,6 @@ export class ProductCardComponent {
   addedtocart = new EventEmitter();
 
   constructor(private store: Store<AppState>){
-    console.log('product->',this.products)
   }
 
     addProduct(item:Product) {

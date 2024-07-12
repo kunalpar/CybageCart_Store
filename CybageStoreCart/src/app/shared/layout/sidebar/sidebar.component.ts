@@ -13,6 +13,7 @@ export class SidebarComponent {
 
   $products:Observable<Product[]>;
   category:string[] = [];
+  categoryFilter:string[] = [];
 
   constructor(private store: Store<AppState>){
     this.$products = this.store.select(state => state.product);
@@ -30,7 +31,19 @@ export class SidebarComponent {
   }
 
   filter(item:string){
+    if (!this.categoryFilter.includes(item)) {
+      this.categoryFilter.push(item)
+    } else {
+      const index = this.categoryFilter.indexOf(item);
+      if (index > -1) {
+        this.categoryFilter.splice(index, 1);
+      }
+    }
+    this.store.dispatch({
+      type: 'FILTER_PRODUCT_CATEGORY',
+      payload: <string[]>  this.categoryFilter
       
+    });
   }
 
 }

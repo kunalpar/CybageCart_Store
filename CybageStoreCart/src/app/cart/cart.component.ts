@@ -10,10 +10,15 @@ import { AppState } from '../app.state';
   styleUrl: './cart.component.scss'
 })
 export class CartComponent {
+  $carts!:Observable<Cart[]>;
 
-  $carts:Observable<Cart[]>;
+  constructor(private store: Store<AppState>){}
 
-  constructor(private store: Store<AppState>){
+  ngOnInit() {
+    this.getCartProduct();
+  }
+
+  getCartProduct(){
     this.$carts = this.store.select(state => state.cart);
   }
 

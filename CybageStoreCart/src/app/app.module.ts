@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -6,14 +6,18 @@ import { AppComponent } from './app.component';
 import { ProductComponent } from './product/product.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './shared/layout/header/header.component';
-import { addCartReducer, addProductReducer } from './store/product.reducer';
+import { addProductReducer } from './store/product.reducer';
 import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductCardComponent } from './shared/layout/product-card/product-card.component';
 import { CartComponent } from './cart/cart.component';
 import { SidebarComponent } from './shared/layout/sidebar/sidebar.component';
+import { addCartReducer } from './store/cart.reducer';
 
 @NgModule({
+  schemas:[
+    CUSTOM_ELEMENTS_SCHEMA
+  ],
   declarations: [
     AppComponent,
     ProductComponent,
@@ -21,7 +25,7 @@ import { SidebarComponent } from './shared/layout/sidebar/sidebar.component';
     HeaderComponent,
     ProductCardComponent,
     CartComponent,
-    SidebarComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

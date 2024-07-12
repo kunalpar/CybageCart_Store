@@ -15,7 +15,10 @@ export class ProductComponent {
   
   constructor(private store: Store<AppState>,private productService: ProductService) {
     this.productService.getProduct();
-    this.$products = this.store.select(state => state.product);   
+    this.$products = this.store.select(state => state.product);  
+    this.$products.subscribe(data=>{
+      console.log('products=>',data)
+    }) 
    }
 
   ngOnInit() {
